@@ -6,7 +6,7 @@ class Solution {
             freq1[c - 'a']++;
         for (char c : word2.toCharArray())
             freq2[c - 'a']++;
-        for (int i = 0; i < 25; i++) {
+        for (int i = 0; i < 26; i++) {
             if (freq1[i] == 0 && freq2[i] != 0 || freq1[i] != 0 && freq2[i] == 0)
                 return false;
         }
