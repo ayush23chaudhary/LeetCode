@@ -9,12 +9,18 @@ class Solution {
         for(int[] ed:edges){
             arr[ed[0]-1]++;
             arr[ed[1]-1]++;
-        }
-        for(int i=0;i<arr.length;i++){
-            if(arr[i]==n-1){
-                return i+1;
+            if(arr[ed[1]-1]==n-1){
+                return ed[1];
+            }
+            if(arr[ed[0]-1]==n-1){
+                return ed[0];
             }
         }
+        // for(int i=0;i<arr.length;i++){
+        //     if(arr[i]==n-1){
+        //         return i+1;
+        //     }
+        // }
         return -1;
 
     }
