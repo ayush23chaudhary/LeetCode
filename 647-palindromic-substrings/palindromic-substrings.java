@@ -1,21 +1,17 @@
 class Solution {
     public int countSubstrings(String s) {
-        int ans=0;
-        for(int i=0;i<s.length();i++){
-            for(int j=i;j<s.length();j++){
-                if(palin(s.substring(i,j+1))) ans++;
+        int count = 0, n = s.length();
+        boolean[][] dp = new boolean[n][n];
+        for (int d = 0; d < n; d++) {
+            for (int i = 0; i + d < n; i++) {
+                int j = i + d;
+                if (s.charAt(i) == s.charAt(j)) {
+                    dp[i][j] = (i + 1 >= j - 1) ? true : dp[i + 1][j - 1];
+                    if (dp[i][j])
+                        count++;
+                }
             }
         }
-        return ans;
-        
-    }
-    public boolean palin(String s){
-        int n= s.length();
-        for(int i=0;i<n/2;i++){
-            if(s.charAt(i)!=s.charAt(n-i-1)){
-                return false;
-            }
-        }
-        return true;
+        return count;
     }
 }
