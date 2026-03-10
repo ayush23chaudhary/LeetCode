@@ -7,21 +7,25 @@ class Solution {
 
         // }
         int time=-1;
-        int[] ans= new int[101];
-        Arrays.fill(ans,-1);
+        int[] ans= new int[102];
+
         for(int i=0;i<nums.size();i++){
-            for(int j=nums.get(i).get(0);j<=nums.get(i).get(1);j++){
-                ans[j]++;
-                time=Math.max(time,nums.get(i).get(1));
-            }
+            int end=nums.get(i).get(1);
+            ans[nums.get(i).get(0)]++;
+            
+            ans[end+1]--;
+            time=Math.max(time,end);
+
         }
         int sum=0;
-        for(int i=1;i<time+1;i++){
-            if(ans[i]==-1){
-                sum++;
+        int count=0;
+        for(int i=1;i<=time;i++){
+            sum+=ans[i];
+            if(sum==0){
+                count++;
             }
         }
-        return time-sum;
+        return time-count;
 
     }
 }
