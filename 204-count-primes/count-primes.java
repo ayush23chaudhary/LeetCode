@@ -4,9 +4,12 @@ class Solution {
         Arrays.fill(arr,-1);
         for(int i=2;i*i<=n;i++){
             int j=2;
-            while(j*i<=n){
-                arr[j*i]++;
-                j++;
+            if(arr[i]==-1){
+                while(j*i<=n){
+                    arr[j*i]++;
+                    j++;
+                }
+
             }
         }
         int count=0;
