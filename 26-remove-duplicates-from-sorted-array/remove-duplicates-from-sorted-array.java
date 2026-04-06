@@ -1,0 +1,15 @@
+class Solution {
+    public int removeDuplicates(int[] arr) {
+        int j=0;
+        for(int i=1;i<arr.length;i++){
+            if(arr[j]==arr[i]){
+               // i++;
+            }
+            else{
+                j++;
+                arr[j]=arr[i];
+            }
+        }
+        return j + 1;
+    }
+}
